@@ -45,7 +45,25 @@
         <button class="info-btn" onclick="window.open('https://drive.google.com/file/d/10qGqT-vDOHhu0oG4hU24pmRA14fpgo-y/view?usp=sharing', '_blank')">Details</button>
     </div>
     <img src="/assets/remvbg-me-removebg-preview (1).png" alt="Bottom Right Image" class="bottom-right">
+
+    <div id="chatbot-bubble" style="display: none;">
+        <script>
+            window.chatpilotConfig = {
+                chatbotId: "1d03e39ec5884eb1baf824e9547b55ac",
+                domain: "https://www.newoaks.ai"
+            }
+        </script>
+        <script src="https://www.newoaks.ai/embed.min.js" charset="utf-8" defer></script>
+        <script>// Animasyon bitince chatbot'u gösteren fonksiyon
+            window.onload = function() {
+                setTimeout(function() {
+                    document.getElementById('chatbot-bubble').style.display = 'block'; // Chatbot'u göster
+                }, 13000); // 13 saniye sonra chatbot görünür olacak (animasyon bitiminden sonra)
+            }</script>
+    </div>
 </div>
     </div>
+    
+   
 </body>
 </html>
