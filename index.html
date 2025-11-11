@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Animasyonlu Yazılar -->
         <div class="slide" id="hello">
             <h1>
                 <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span>
@@ -36,34 +35,91 @@
             <h2>All details are in the attached link. If you want, you can also call.</h2>
         </div>
         
-        <!-- Sabit Resimler ve Butonlar -->
-        <!-- Sabit Resimler -->
-<div class="final">
-    <img src="/assets/bg-rmvd-logo.png" alt="Center Image" class="center">
-    <div class="text-container">
-        <button class="info-btn" onclick="window.open('https://wa.me/905397447498', '_blank')">Text Us</button>
-        <button class="info-btn" onclick="window.open('https://drive.google.com/file/d/10qGqT-vDOHhu0oG4hU24pmRA14fpgo-y/view?usp=sharing', '_blank')">Details</button>
-    </div>
-    <img src="/assets/remvbg-me-removebg-preview (1).png" alt="Bottom Right Image" class="bottom-right">
+        <div class="slide-info" id="info1">
+            <h2>Great way to start your career in IT<br><br>
+                High-paying job opportunities: $90k+<br>
+                Be part of a software developments team<br>
+                No IT background required<br>
+                Positions at top tech companies<br>
+                Work from home
+            </h2>
+        </div>
+        <div class="slide-info" id="info2">
+            <h2>You'll get:<br><br>
+                Manuel Testing<br>
+                Coding & Frameworks<br>
+                Automation Testing<br>
+                Database & API<br>
+                Resume Building & Interview Prep.<br>
+                Job Placement
+            </h2>
+        </div>
+        <div class="slide-info" id="info3">
+            <h2>REFUND Policy<br><br>
+                30-day trial<br>
+                Money-back gurantee
+            </h2>
+        </div>
+        <div class="slide-info" id="info4">
+            <h2>
+                <span style="color: white;">&lt;/&gt;</span> 
+                <span style="color: #00bf63;">CT</span><span style="color: white;">SS</span> 
+                <span style="color: #00bf63;"> Academy</span>
+            </h2>
+        </div>
 
-    <div id="chatbot-bubble" style="display: none;">
-        <script>
-            window.chatpilotConfig = {
-                chatbotId: "1d03e39ec5884eb1baf824e9547b55ac",
-                domain: "https://www.newoaks.ai"
-            }
-        </script>
-        <script src="https://www.newoaks.ai/embed.min.js" charset="utf-8" defer></script>
-        <script>// Animasyon bitince chatbot'u gösteren fonksiyon
-            window.onload = function() {
-                setTimeout(function() {
-                    document.getElementById('chatbot-bubble').style.display = 'block'; // Chatbot'u göster
-                }, 13000); // 13 saniye sonra chatbot görünür olacak (animasyon bitiminden sonra)
-            }</script>
-    </div>
-</div>
+        
+        <div class="final">
+            
+            <h1 class="final-logo">
+                <span style="color: white;">&lt;/&gt;</span> 
+                <span style="color: #00bf63;">CT</span><span style="color: white;">SS</span> 
+                <span style="color: #00bf63;"> Academy</span>
+            </h1>
+            
+            <div class="text-container">
+                <button class="info-btn" onclick="window.open('https://wa.me/905397447498', '_blank')">Text Us</button>
+                <button class="info-btn" id="btn-details">Details</button>
+            </div>
+            
+            <img src="assets/remvbg-me-removebg-preview (1).png" alt="Bottom Right Image" class="bottom-right">
+        </div>
     </div>
     
-   
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const finalScreen = document.querySelector('.final');
+            const detailsButton = document.getElementById('btn-details');
+            
+            // Diziye 4. slayt eklendi
+            const infoSlides = [
+                document.getElementById('info1'),
+                document.getElementById('info2'),
+                document.getElementById('info3'),
+                document.getElementById('info4') // YENİ
+            ];
+
+            detailsButton.addEventListener('click', () => {
+                finalScreen.classList.add('hidden');
+                finalScreen.style.animation = 'none'; 
+
+                function showSlide(index) {
+                    if (index > 0) {
+                        infoSlides[index - 1].classList.remove('active');
+                    }
+
+                    if (index < infoSlides.length) {
+                        infoSlides[index].classList.add('active');
+                        // Süre 2000'den 3000'e (3s) çıkarıldı
+                        setTimeout(() => showSlide(index + 1), 3000); 
+                    } else {
+                        finalScreen.classList.remove('hidden');
+                        finalScreen.style.animation = 'fadeInFinal 2s ease forwards';
+                    }
+                }
+                showSlide(0);
+            });
+        });
+    </script>
 </body>
 </html>
